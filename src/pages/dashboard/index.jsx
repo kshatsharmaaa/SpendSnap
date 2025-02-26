@@ -1,6 +1,10 @@
 import "../dashboard/style.css";
+import { useAddTransaction } from "../../hooks/useAddTransaction";
 
 export const Dashboard = () => {
+
+    const {addTransaction} = useAddTransaction();
+
     return (
         <>
         <div className="spendsnap-container">
