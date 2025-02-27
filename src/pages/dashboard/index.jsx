@@ -2,7 +2,7 @@ import "../dashboard/style.css";
 import { useAddTransaction } from "../../hooks/useAddTransaction";
 import { useGetTransactions } from "../../hooks/useGetTransactions";
 import { useGetUserInfo } from "../../hooks/useGetUserInfo";
-import logo from "./logo.png";
+import logo from "../logo.png";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase-config";

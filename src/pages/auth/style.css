@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Special Elite', cursive;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.login-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+}
+
+.login-logo {
+    width: 120px;
+    height: auto;
+}
+
+.login-header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.login-hero {
+    margin: 20px 0;
+    font-size: 1.5rem;
+    max-width: 600px;
+}
+
+.login-button-container {
+    margin: 20px 0;
+}
+
+.login-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    font-family: 'Special Elite', cursive;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.login-button:hover {
+    background: #fff;
+    color: #000;
+}
+
+.login-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    text-align: center;
+    background: #000;
+    color: #fff;
+}
+
+.login-footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .login-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .login-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .login-logo {
+        width: 80px;
+    }
+}
