@@ -1,122 +1,174 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-
+/* General Styles */
 body {
+    font-family: 'Courier', monospace;
     margin: 0;
     padding: 0;
-    font-family: 'Special Elite', cursive;
-    background-color: #fff;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    background: white;
+    color: black;
     width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.spendsnap-container {
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header */
+.dashboard-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
     width: 100%;
-    padding: 40px;
+    max-width: 1200px; /* Prevents overflow */
+    height: 70px;
+    padding: 10px;
+    background: white;
+    border-bottom: 2px solid black;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 
-.spendsnap-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px;
+/* User Profile Photo */
+.user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover;
 }
 
-.spendsnap-logo {
-    width: 100px;
-    height: auto;
-}
-
-.spendsnap-header h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-.spendsnap-balance,
-.spendsnap-summary,
-.spendsnap-form,
-.spendsnap-transactions {
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    border-bottom: 2px solid #000;
-}
-
-.spendsnap-summary {
-    display: flex;
-    justify-content: space-between;
-}
-
-.spendsnap-form {
+/* User Info */
+.user-info {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 30px;
-}
-
-.spendsnap-form input,
-.spendsnap-form button {
-    padding: 15px;
-    font-size: 18px;
-    border: 2px solid #000;
-    border-radius: 8px;
+    align-items: center;
     width: 100%;
-    font-family: 'Special Elite', cursive;
-    background: #fff;
-    color: #000;
+    margin-top: 10px;
 }
 
-.spendsnap-form button {
-    background: #000;
-    color: #fff;
+/* Signout Button */
+.signout-button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px 15px;
     cursor: pointer;
-    font-weight: bold;
-}
-
-.spendsnap-radio-group {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
-}
-
-.spendsnap-footer {
-    margin-top: auto;
-    padding: 15px;
-    font-size: 16px;
+    width: 90%;
+    max-width: 250px;
     text-align: center;
-    background: #000;
-    color: #fff;
+    margin-bottom: 15px;
+}
+
+/* Main Dashboard Layout */
+.dashboard-main {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    padding-top: 80px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Finance Section & Transactions Section */
+.finance-section, 
+.transactions-section {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: calc(100vh - 80px);
+    max-width: 50vw; /* Ensures sections don't overflow */
+}
+
+/* Transaction Form */
+.transaction-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+}
+
+.transaction-form input,
+.transaction-form button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid black;
+    text-align: center;
+}
+
+/* Add Transaction Button */
+.add-transaction-button {
+    background: black;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
     width: 100%;
 }
 
-.spendsnap-footer a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+.add-transaction-button:hover {
+    background: white;
+    color: black;
+    border: 1px solid black;
 }
 
+/* Transactions List */
+.transactions-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.transactions-list li {
+    padding: 12px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    width: 100%;
+}
+
+/* Footer */
+.dashboard-footer {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    background: black;
+    color: white;
+    position: relative;
+}
+
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
-    .spendsnap-header {
+    .dashboard-main {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
+        padding: 10px;
     }
 
-    .spendsnap-header h1 {
-        font-size: 2.5rem;
+    .finance-section, 
+    .transactions-section {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
 
-    .spendsnap-logo {
-        width: 80px;
+    .transaction-form input,
+    .transaction-form button {
+        width: 100%;
+        max-width: 100%;
     }
-} */
+}

@@ -6,7 +6,7 @@ import logo from "../logo.png";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase-config";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 
 export const Dashboard = () => {
 
@@ -39,55 +39,50 @@ export const Dashboard = () => {
       };
 
     return (
-        <>
-        <div className="spendsnap-container">
-            <header className="spendsnap-header">
-                <img src={logo} alt="SpendSnap Logo" className="spendsnap-logo" />
-                <h1>SpendSnap</h1>
-                <h2>{name}'s Expense Tracker</h2>
-                {profilePhoto && (
-          <div className="profile">
-            {" "}
-            <img className="profile-photo" src={profilePhoto} alt="" />
-            <button className="sign-out-button" onClick={signUserOut}>
-              Sign Out
-            </button>
-          </div>
-        )}
+        <div className="dashboard-container">
+            <header className="dashboard-header">
+                <div className="header-content">
+                    <img src={logo} alt="SpendSnap Logo" className="dashboard-logo" />
+                    <h1>SpendSnap</h1>
+                </div>
+                <div className="user-info">
+                    {profilePhoto && (<img className="user-photo" src={profilePhoto} alt="" />)}
+                    <h2>{name}'s Expense Tracker</h2>
+                    <button onClick={signUserOut} className="signout-button">Sign Out</button>
+                </div>
             </header>
 
-            <section className="spendsnap-balance">
-                <h3>Your Balance</h3>
-                {balance >=0 ? (<h2>₹{balance}</h2>) : (<h2>-₹{balance*-1}</h2>)}
-                
-            </section>
+            <main className="dashboard-main">
+                <section className="finance-section">
+                    <h3>Your Balance</h3>
+                    {balance >=0 ? (<h2>₹{balance}</h2>) : (<h2>-₹{balance*-1}</h2>)}
+                    <div className="finance-summary">
+                        <div>
+                            <h4>Income</h4>
+                            <p>₹{income}</p>
+                        </div>
+                        <div>
+                            <h4>Expenses</h4>
+                            <p>₹{expenses}</p>
+                        </div>
+                    </div>
+                    <form onSubmit={onSubmit} className="transaction-form">
 
-            <section className="spendsnap-summary">
-                <div>
-                    <h4>Income</h4>
-                    <p>₹{income}</p>
-                </div>
-                <div>
-                    <h4>Expenses</h4>
-                    <p>₹{expenses}</p>
-                </div>
-            </section>
+                        <input type="text" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} required />
+                        <input type="number" placeholder="Amount" value={transactionAmount} onChange={(e) => setTransactionAmount(e.target.value)} required />
+                        <div className="radio-group">
+                            <input type="radio" id="expense" value="expense" checked={transactionType === 'expense'} onChange={(e) => setTransactionType(e.target.value)} />
+                            <label htmlFor="expense">Expense</label>
+                            <input type="radio" id="income" value="income" checked={transactionType === 'income'} onChange={(e) => setTransactionType(e.target.value)} />
+                            <label htmlFor="income">Income</label>
+                        </div>
+                        <button className="add-transaction-button" type="submit">Add Transaction</button>
+                    </form>
+                </section>
 
-            <form className="spendsnap-form" onSubmit={onSubmit}>
-                <input type="text" placeholder="Description" value={description} required onChange={(e) => setDescription(e.target.value)} />
-                <input type="number" placeholder="Amount" value={transactionAmount} required onChange={(e) => setTransactionAmount(e.target.value)} />
-                <div className="spendsnap-radio-group">
-                    <input type="radio" value="expense" id="expense" name="type" checked={transactionType === "expense"} onChange={(e) => setTransactionType(e.target.value)} />
-                    <label htmlFor="expense">Expense</label>
-                    <input type="radio" value="income" id="income" name="type" checked={transactionType === "income"} onChange={(e) => setTransactionType(e.target.value)} />
-                    <label htmlFor="income">Income</label>
-                </div>
-                <button type="submit">Add Transaction</button>
-            </form>
-            
-            <div className="spendsnap-transactions">
-                <h3>Transactions</h3>
-                <ul>
+                <section className="transactions-section">
+                    <h3>Transactions</h3>
+                    <ul className="transactions-list">
                     {transactions.map((transaction) => {
                         const {description, transactionAmount, transactionType} = transaction;
                         return (
@@ -98,14 +93,14 @@ export const Dashboard = () => {
                         </li>
                         )
                     })}
-                </ul>
-            </div>
+                    </ul>
+                </section>
+            </main>
 
-            <footer className="spendsnap-footer">
+            <footer className="dashboard-footer">
                 Developed by Akshat Sharma | <a href="https://github.com/kshatsharmaaa">GitHub</a>
             </footer>
         </div>
-        </>
     );
 }
 

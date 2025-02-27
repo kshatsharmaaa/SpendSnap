@@ -10,7 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" exact element={ <Auth /> } />
-          <Route path="/dashboard" exact element={ <Dashboard /> } />
+          <Route path="/dashboard" element={ <Dashboard /> } />
         </Routes>
       </Router>
     </div>
