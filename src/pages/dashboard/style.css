@@ -1,138 +1,122 @@
-/* General Styles */
+/* @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #fff;
     margin: 0;
     padding: 0;
+    font-family: 'Special Elite', cursive;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.spendsnap-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
+    padding: 40px;
 }
 
-/* Container */
-.spendsnap-container {
-    width: 90%;
-    max-width: 400px;
-    background: rgba(255, 255, 255, 0.1);
+.spendsnap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     padding: 20px;
-    border-radius: 12px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Header */
+.spendsnap-logo {
+    width: 100px;
+    height: auto;
+}
+
 .spendsnap-header h1 {
-    text-align: center;
-    font-size: 24px;
-}
-
-/* Balance Section */
-.spendsnap-balance {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.spendsnap-balance h3 {
-    font-weight: 500;
-    opacity: 0.9;
-}
-
-.spendsnap-balance h2 {
-    font-size: 28px;
+    font-size: 3rem;
     font-weight: bold;
+    white-space: nowrap;
 }
 
-/* Income & Expense Display */
+.spendsnap-balance,
+.spendsnap-summary,
+.spendsnap-form,
+.spendsnap-transactions {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #000;
+}
+
 .spendsnap-summary {
     display: flex;
     justify-content: space-between;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 20px;
 }
 
-.spendsnap-summary div {
-    text-align: center;
-    flex: 1;
-}
-
-.spendsnap-summary h4 {
-    margin-bottom: 5px;
-}
-
-/* Form Styling */
 .spendsnap-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    padding: 30px;
 }
 
 .spendsnap-form input,
 .spendsnap-form button {
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-}
-
-.spendsnap-form input {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-.spendsnap-form input::placeholder {
-    color: #ddd;
-}
-
-.spendsnap-form input[type="radio"] {
-    margin-right: 5px;
-}
-
-.spendsnap-form label {
-    margin-right: 15px;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    width: 100%;
+    font-family: 'Special Elite', cursive;
+    background: #fff;
+    color: #000;
 }
 
 .spendsnap-form button {
-    background: #ff8c00;
-    color: white;
-    font-weight: bold;
+    background: #000;
+    color: #fff;
     cursor: pointer;
-    transition: background 0.3s ease;
+    font-weight: bold;
 }
 
-.spendsnap-form button:hover {
-    background: #e67e22;
+.spendsnap-radio-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Transactions */
-.spendsnap-transactions {
-    margin-top: 20px;
-    width: 100%;
-    max-width: 400px;
-}
-
-.spendsnap-transactions h3 {
-    text-align: center;
-}
-
-/* Footer */
 .spendsnap-footer {
-    margin-top: 20px;
-    font-size: 14px;
+    margin-top: auto;
+    padding: 15px;
+    font-size: 16px;
     text-align: center;
-    opacity: 0.8;
+    background: #000;
+    color: #fff;
+    width: 100%;
 }
 
 .spendsnap-footer a {
-    color: #ff8c00;
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
 }
 
-.spendsnap-footer a:hover {
-    text-decoration: underline;
-}
+@media (max-width: 768px) {
+    .spendsnap-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .spendsnap-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .spendsnap-logo {
+        width: 80px;
+    }
+} */
