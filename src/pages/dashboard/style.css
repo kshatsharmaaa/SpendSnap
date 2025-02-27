@@ -5,57 +5,68 @@ body {
     padding: 0;
     background: white;
     color: black;
-    width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 100vw;
     overflow-x: hidden;
-    overflow-y: auto;
 }
 
 /* Dashboard Container */
 .dashboard-container {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
     width: 100vw;
-    height: 100vh;
-    overflow: hidden;
 }
 
 /* Header */
 .dashboard-header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px; /* Prevents overflow */
-    height: 70px;
-    padding: 10px;
-    background: white;
+    padding: 20px;
     border-bottom: 2px solid black;
+    width: 100%;
+    background: white;
+    flex-wrap: nowrap;
     box-sizing: border-box;
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 1000;
+    height: 80px;
 }
 
-/* User Profile Photo */
-.user-photo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%; /* Makes it circular */
-    object-fit: cover;
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 100%;
+}
+
+.dashboard-logo {
+    width: 100px;
+    height: 100px;
 }
 
 /* User Info */
 .user-info {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 100%;
-    margin-top: 10px;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+/* User Profile Photo */
+.user-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid black;
+    object-fit: cover;
 }
 
 /* Signout Button */
@@ -63,68 +74,84 @@ body {
     background: black;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     cursor: pointer;
-    width: 90%;
-    max-width: 250px;
-    text-align: center;
-    margin-bottom: 15px;
 }
 
 /* Main Dashboard Layout */
 .dashboard-main {
     display: flex;
     flex: 1;
-    width: 100%;
-    max-width: 1200px;
-    padding-top: 80px;
-    overflow-y: auto;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100vw;
+    height: auto;
+    gap: 20px;
+    box-sizing: border-box;
+    margin-top: 100px;
+}
+
+.finance-section, .transactions-section {
+    flex: 1;
+    padding: 20px;
+    height: auto;
+    width: 50%;
+    max-width: 50%;
     box-sizing: border-box;
 }
 
-/* Finance Section & Transactions Section */
-.finance-section, 
-.transactions-section {
-    flex: 1;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    height: calc(100vh - 80px);
-    max-width: 50vw; /* Ensures sections don't overflow */
+/* Finance Summary */
+.finance-summary {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
 }
 
 /* Transaction Form */
-.transaction-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.transaction-form input, .transaction-form button {
+    display: block;
     width: 100%;
-    max-width: 350px;
-}
-
-.transaction-form input,
-.transaction-form button {
-    width: 100%;
+    margin-bottom: 10px;
     padding: 12px;
-    margin: 8px 0;
     border: 1px solid black;
-    text-align: center;
 }
 
 /* Add Transaction Button */
 .add-transaction-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid black;
     background: black;
     color: white;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    width: 100%;
 }
 
 .add-transaction-button:hover {
     background: white;
     color: black;
     border: 1px solid black;
+    transform: scale(1.05);
+}
+
+/* Transactions Section */
+.transactions-section {
+    overflow-y: auto;
+    padding: 20px;
+    max-height: 75vh;
+    width: 50%;
+}
+
+/* Hide Scrollbar for Transactions Section */
+.transactions-section::-webkit-scrollbar {
+    display: none;
+}
+
+.transactions-section {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /* Transactions List */
@@ -135,40 +162,72 @@ body {
 }
 
 .transactions-list li {
-    padding: 12px;
+    padding: 15px;
     border-bottom: 1px solid black;
-    text-align: center;
     width: 100%;
 }
 
 /* Footer */
 .dashboard-footer {
-    width: 100%;
     text-align: center;
-    padding: 12px;
+    padding: 15px;
+    border-top: 2px solid black;
     background: black;
     color: white;
-    position: relative;
+    width: 100vw;
+    box-sizing: border-box;
+    margin-top: auto;
 }
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
+    .dashboard-container {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+
+    .dashboard-header {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 15px;
+        text-align: center;
+        width: 100%;
+        z-index: 10;
+    }
+    
     .dashboard-main {
         flex-direction: column;
         align-items: center;
-        padding: 10px;
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        flex-grow: 1;
+        margin-top: 0;
     }
-
-    .finance-section, 
-    .transactions-section {
+    
+    .finance-section, .transactions-section {
         width: 100%;
         max-width: 100%;
-        height: auto;
+        padding: 15px;
     }
 
-    .transaction-form input,
-    .transaction-form button {
+    .signout-button {
         width: 100%;
-        max-width: 100%;
+        max-width: 200px;
+        margin: 10px auto;
+    }
+
+    body {
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
 }
