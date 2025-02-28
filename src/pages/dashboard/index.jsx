@@ -48,7 +48,9 @@ export const Dashboard = () => {
                 <div className="user-info">
                     {profilePhoto && (<img className="user-photo" src={profilePhoto} alt="" />)}
                     <h2>{name}'s Expense Tracker</h2>
+                    <div class="signout-container">
                     <button onClick={signUserOut} className="signout-button">Sign Out</button>
+                    </div>
                 </div>
             </header>
 
