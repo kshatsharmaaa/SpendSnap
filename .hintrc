@@ -11,6 +11,12 @@
         ]
       }
     ],
-    "compat-api/css": "off"
+    "compat-api/css": "off",
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ]
   }
 }
